@@ -20,7 +20,7 @@ RUN wget -q -O - \
 ##
 # Workaround for safe.directory https://github.com/actions/runner-images/issues/6775
 ##
-RUN git config --global --add safe.directory *
+RUN git config --system --add safe.directory "*"
 
 COPY entrypoint.sh /entrypoint.sh
 
