@@ -17,6 +17,11 @@ RUN wget -q -O - \
 "https://github.com/getzola/zola/releases/download/v0.16.1/zola-v0.16.1-x86_64-unknown-linux-gnu.tar.gz" \
 | tar xzf - -C /usr/local/bin
 
+##
+# Workaround for safe.directory https://github.com/actions/runner-images/issues/6775
+##
+RUN git config --global --add safe.directory /github/workspace/public
+
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
